@@ -145,15 +145,15 @@ function datapublic_blocks_views_default_views() {
   $export['most_popular_content'] = $view;
 
   $view = new view;
-  $view->name = 'tweets';
+  $view->name = 'new_tweets';
   $view->description = 'Displays Twitter.com status messages for users who have associated Twitter accounts.';
   $view->tag = '';
   $view->base_table = 'twitter';
-  $view->human_name = '';
+  $view->human_name = 'New Tweets';
   $view->core = 0;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
-
+  
   /* Display: Tweets */
   $handler = $view->new_display('default', 'Tweets', 'default');
   $handler->display->display_options['access']['type'] = 'none';
@@ -222,20 +222,20 @@ function datapublic_blocks_views_default_views() {
   $handler->display->display_options['arguments']['uid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['uid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['uid']['summary_options']['count'] = FALSE;
-  $handler->display->display_options['arguments']['uid']['summary_options']['items_per_page'] = '1';
+  $handler->display->display_options['arguments']['uid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['uid']['specify_validation'] = 1;
   $handler->display->display_options['arguments']['uid']['validate']['type'] = 'php';
   $handler->display->display_options['arguments']['uid']['validate_options']['code'] = '$uid = arg(1);
-                  if (!empty($uid)) {
-                     $account = user_load($uid);
-                     $twitter_accounts = twitter_twitter_accounts($account);
-                     if(count($twitter_accounts)) {
-                       return TRUE;
-                     }
-                     else {
-                       return TRUE;
-                     }
-                   }';
+                    if (!empty($uid)) {
+                       $account = user_load($uid);
+                       $twitter_accounts = twitter_twitter_accounts($account);
+                       if(count($twitter_accounts)) {
+                         return TRUE;
+                       }
+                       else {
+                         return TRUE;
+                       }
+                     }';
   $handler->display->display_options['arguments']['uid']['validate']['fail'] = 'ignore';
   $handler->display->display_options['arguments']['uid']['break_phrase'] = 0;
   $handler->display->display_options['arguments']['uid']['not'] = 0;
@@ -245,14 +245,14 @@ function datapublic_blocks_views_default_views() {
   $handler->display->display_options['filters']['protected']['field'] = 'protected';
   $handler->display->display_options['filters']['protected']['value'] = 0;
   $handler->display->display_options['filters']['protected']['expose']['operator'] = FALSE;
-
+  
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['path'] = 'user/%/tweets';
   $handler->display->display_options['menu']['type'] = 'tab';
   $handler->display->display_options['menu']['title'] = 'Twitter';
   $handler->display->display_options['menu']['weight'] = '1';
-
+  
   /* Display: Block: Footer */
   $handler = $view->new_display('block', 'Block: Footer', 'block');
   $handler->display->display_options['defaults']['title'] = FALSE;
@@ -308,7 +308,7 @@ function datapublic_blocks_views_default_views() {
   $handler->display->display_options['fields']['created_time']['label'] = '';
   $handler->display->display_options['fields']['created_time']['date_format'] = 'time ago';
   $handler->display->display_options['block_description'] = 'Twitter: Footer Block';
-  $export['tweets'] = $view;
+  $export['new_tweets'] = $view;
 
   return $export;
 }
