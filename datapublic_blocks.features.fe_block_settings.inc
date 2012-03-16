@@ -28,6 +28,36 @@ function datapublic_blocks_default_fe_block_settings() {
     'i18n_mode' => '0',
   );
 
+  $theme['re_silverlight_map-re-silverlight-map-events-block'] = array(
+    'module' => 're_silverlight_map',
+    'delta' => 're-silverlight-map-events-block',
+    'theme' => 'datapublic_theme',
+    'status' => '1',
+    'weight' => '-26',
+    'region' => 'content',
+    'custom' => '0',
+    'visibility' => '1',
+    'pages' => 'about',
+    'title' => 'EVENTS',
+    'cache' => '1',
+    'i18n_mode' => '0',
+  );
+
+  $theme['re_silverlight_map-re-silverlight-map-pages-block'] = array(
+    'module' => 're_silverlight_map',
+    'delta' => 're-silverlight-map-pages-block',
+    'theme' => 'datapublic_theme',
+    'status' => '1',
+    'weight' => '-27',
+    'region' => 'content',
+    'custom' => '0',
+    'visibility' => '1',
+    'pages' => 'about',
+    'title' => 'PAGES',
+    'cache' => '1',
+    'i18n_mode' => '0',
+  );
+
   $export['datapublic_theme'] = $theme;
 
   $theme_default = variable_get('theme_default', 'garland');
