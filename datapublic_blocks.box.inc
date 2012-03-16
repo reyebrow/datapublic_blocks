@@ -19,7 +19,7 @@ function datapublic_blocks_default_box() {
   $box->description = 'Newsletter Sign Up';
   $box->options = array(
     'body' => array(
-      'value' => '<p>You should sign up for our newsletter using the form below.</p><form id="mc-embedded-subscribe-form" class="validate" action="" method="post" name="mc-embedded-subscribe-form" target="_blank"><div><input id="mce-EMAIL" class="form-text" type="email" name="EMAIL" value="" /> <input id="mc-embedded-subscribe" class="form-submit" type="submit" name="subscribe" value="sign up" /></div></form>',
+      'value' => '<p>You should sign up for our newsletter using the form below.</p><form id="mc-embedded-subscribe-form" class="validate nice" action="" method="post" name="mc-embedded-subscribe-form" target="_blank"><div><input id="mc-embedded-subscribe" class="form-submit button small nice right" type="submit" name="subscribe" value="sign up" /><input id="mce-EMAIL" class="form-text input-text small right" type="email" name="EMAIL" value="" /></div></form>',
       'format' => 'full_html',
     ),
     'additional_classes' => 'four',
